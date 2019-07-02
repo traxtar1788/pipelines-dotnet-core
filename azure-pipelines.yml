@@ -16,7 +16,6 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   
-  # do this after other tasks such as building
 - task: DotNetCoreCLI@2
   inputs:
     command: test
@@ -26,5 +25,4 @@ steps:
 - script: dotnet publish --output $(Build.ArtifactStagingDirectory)
   displayName: 'dotnet publish $(Build.ArtifactStagingDirectory)'
 
-  # do this near the end of your pipeline in most cases
 - task: PublishBuildArtifacts@1
