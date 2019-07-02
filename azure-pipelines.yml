@@ -23,5 +23,8 @@ steps:
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
+- script: dotnet publish --output $(Build.ArtifactStagingDirectory)
+  displayName: 'dotnet publish $(Build.ArtifactStagingDirectory)'
+
   # do this near the end of your pipeline in most cases
 - task: PublishBuildArtifacts@1
